@@ -12,6 +12,11 @@ enum PokedexResponse{
     case failure(Error)
 }
 
+enum PokedexError: Error{
+    case urlConversionError
+    case unknownError
+}
+
 class PokeAPI_Helper{
     private static let pokedexURL = "https://pokeapi.co/api/v2/pokemon"
     
@@ -19,6 +24,7 @@ class PokeAPI_Helper{
         guard
             let url = URL(string: pokedexURL)
         else {
+            callback(.failure(PokedexError.urlConversionError))
             return
         }
         
@@ -33,11 +39,13 @@ class PokeAPI_Helper{
                     callback(.success(pokedexData.results))
                 } catch let err {
                     print("there was an erro: \(err)")
+                    callback(.failure(err))
                 }
             } else if let error = error {
                 callback(.failure(error))
             } else {
                 print("some random error occured")
+                callback(.failure(PokedexError.unknownError))
             }
         }
         task.resume()
