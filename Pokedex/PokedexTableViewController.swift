@@ -20,8 +20,16 @@ class PokedexTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         Task{
-            let results = try await PokeAPI_Helper.fetchPokedex()
-            pokedex = results.results
+            do{
+                let results = try await PokeAPI_Helper.fetchPokedex()
+                pokedex = results.results
+                tableView.reloadData()
+            } catch PokeAPI_Errors.stringToURLError {
+                print("there was an error converting the string to a url")
+            } catch let err {
+                print(err)
+            }
+
         }
     }
 
@@ -40,10 +48,10 @@ class PokedexTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "pokemon", for: indexPath)
 
         // Configure the cell...
-        print(pokedex[indexPath.row])
+        cell.textLabel!.text = pokedex[indexPath.row].name
 
         return cell
     }
