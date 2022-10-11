@@ -9,11 +9,19 @@ import Foundation
 
 struct Pokemon: Codable{
     var name: String
-    var sprites: [Sprite]
+    var sprites: Sprite
+    var forms: [Forms]
+    var height: Int
+    var wight: Int
+    var id: Int
 }
 
 struct Sprite: Codable{
     var front_default: String
+}
+
+struct Forms: Codable{
+    var name: String
 }
 
 struct Pokedex: Codable{

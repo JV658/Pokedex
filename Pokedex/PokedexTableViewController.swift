@@ -48,10 +48,16 @@ class PokedexTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "pokemon", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "pokemon", for: indexPath) as! PokemonTableViewCell
+        
+        Task{
+            let pokemonURL = pokedex[indexPath.row].url
+            let pokemon = try await PokeAPI_Helper.fetchPokemon(pokemonURL: pokemonURL)
+            let defaultSprite = try await PokeAPI_Helper.fetchImage(imageURL: pokemon.sprites.front_default)
+            cell.defaultSprite.image = UIImage(data: defaultSprite)
+        }
         // Configure the cell...
-        cell.textLabel!.text = pokedex[indexPath.row].name
+        cell.pokeNameLabel.text = pokedex[indexPath.row].name
 
         return cell
     }

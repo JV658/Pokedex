@@ -12,7 +12,7 @@ enum PokeAPI_Errors: Error{
 }
 
 class PokeAPI_Helper{
-    private static let pokedexURL = "https://pokeapi.co/api/v2/pokemon"
+    private static let pokedexURL = "https://pokeapi.co/api/v2/pokemon?limit=500"
     
     public static func fetchPokedex() async throws -> Pokedex{
         guard
@@ -30,5 +30,37 @@ class PokeAPI_Helper{
         let pokedex = try decoder.decode(Pokedex.self, from: data)
         
         return pokedex
+    }
+    
+    public static func fetchPokemon(pokemonURL: String) async throws -> Pokemon{
+        guard
+            let url = URL(string: pokemonURL)
+        else { throw PokeAPI_Errors.stringToURLError}
+        
+        let request = URLRequest(url: url)
+        
+        let (data, _) = try await URLSession.shared.data(for: request)
+        
+        let decoder = JSONDecoder()
+        
+        let pokemon = try decoder.decode(Pokemon.self, from: data)
+        
+        return pokemon
+    }
+    
+    public static func fetchImage(imageURL: String) async throws -> Data{
+        for _ in 0...1000000{
+            continue
+        }
+        
+        guard
+            let url = URL(string: imageURL)
+        else { throw PokeAPI_Errors.stringToURLError}
+        
+        let request = URLRequest(url: url)
+        
+        let (data, _) = try await URLSession.shared.data(for: request)
+        
+        return data
     }
 }
