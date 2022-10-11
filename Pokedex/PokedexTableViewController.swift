@@ -10,6 +10,7 @@ import UIKit
 class PokedexTableViewController: UITableViewController {
 
     var pokedex = [PokedexInfo]()
+    var pokemonDetails = [String: Pokemon]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,14 +51,35 @@ class PokedexTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "pokemon", for: indexPath) as! PokemonTableViewCell
         
-        Task{
-            let pokemonURL = pokedex[indexPath.row].url
-            let pokemon = try await PokeAPI_Helper.fetchPokemon(pokemonURL: pokemonURL)
-            let defaultSprite = try await PokeAPI_Helper.fetchImage(imageURL: pokemon.sprites.front_default)
-            cell.defaultSprite.image = UIImage(data: defaultSprite)
+        let pokename = pokedex[indexPath.row].name
+        
+        // MARK: TODO - refine this code to store the image data in the internal memory
+        if let pokemon = pokemonDetails[pokename]{
+            cell.defaultSprite.image = UIImage(data: pokemon.imageData!)
+        } else {
+            Task{
+                let pokemonURL = pokedex[indexPath.row].url
+                do{
+                    
+                    // fetch pokemon data
+                    var pokemon = try await PokeAPI_Helper.fetchPokemon(pokemonURL: pokemonURL)
+                    // fetch front_dfault image data
+                    let defaultSprite = try await PokeAPI_Helper.fetchImage(imageURL: pokemon.sprites.front_default)
+                    // set cell image to uiimage of defaultSprite data (front_default)
+                    cell.defaultSprite.image = UIImage(data: defaultSprite)
+                    // storing the image data in pokemon instance
+                    pokemon.imageData = defaultSprite
+                    // storing the pokemon instance in the pokedetails dictionary
+                    pokemonDetails[pokename] = pokemon
+                    
+                } catch let err {
+                    print(err)
+                }
+            }
         }
+        
         // Configure the cell...
-        cell.pokeNameLabel.text = pokedex[indexPath.row].name
+        cell.pokeNameLabel.text = pokename
 
         return cell
     }
@@ -97,14 +119,16 @@ class PokedexTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        let dst = segue.destination as! PokemonDetailedViewController
+        let index = tableView.indexPathForSelectedRow!.row
+        let pokename = pokedex[index].name
+        dst.pokemon = pokemonDetails[pokename]
     }
-    */
 
 }

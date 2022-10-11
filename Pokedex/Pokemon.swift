@@ -12,8 +12,9 @@ struct Pokemon: Codable{
     var sprites: Sprite
     var forms: [Forms]
     var height: Int
-    var wight: Int
+    var weight: Int
     var id: Int
+    var imageData: Data?
 }
 
 struct Sprite: Codable{

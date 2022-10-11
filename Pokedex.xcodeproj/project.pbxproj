@@ -16,6 +16,7 @@
 		DBEC474E28ECDA58000732AE /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEC474D28ECDA58000732AE /* Pokemon.swift */; };
 		DBEC475028ECDC8C000732AE /* PokeAPI_Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEC474F28ECDC8C000732AE /* PokeAPI_Helper.swift */; };
 		DBEC477628F60C03000732AE /* PokemonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEC477528F60C03000732AE /* PokemonTableViewCell.swift */; };
+		DBEC477828F61F15000732AE /* PokemonDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEC477728F61F15000732AE /* PokemonDetailedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		DBEC474D28ECDA58000732AE /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		DBEC474F28ECDC8C000732AE /* PokeAPI_Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeAPI_Helper.swift; sourceTree = "<group>"; };
 		DBEC477528F60C03000732AE /* PokemonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTableViewCell.swift; sourceTree = "<group>"; };
+		DBEC477728F61F15000732AE /* PokemonDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				DBEC474D28ECDA58000732AE /* Pokemon.swift */,
 				DBEC474F28ECDC8C000732AE /* PokeAPI_Helper.swift */,
 				DBEC477528F60C03000732AE /* PokemonTableViewCell.swift */,
+				DBEC477728F61F15000732AE /* PokemonDetailedViewController.swift */,
 				DBEC473D28ECD8E2000732AE /* Main.storyboard */,
 				DBEC474028ECD8E3000732AE /* Assets.xcassets */,
 				DBEC474228ECD8E3000732AE /* LaunchScreen.storyboard */,
@@ -152,6 +155,7 @@
 				DBEC473828ECD8E2000732AE /* AppDelegate.swift in Sources */,
 				DBEC477628F60C03000732AE /* PokemonTableViewCell.swift in Sources */,
 				DBEC475028ECDC8C000732AE /* PokeAPI_Helper.swift in Sources */,
+				DBEC477828F61F15000732AE /* PokemonDetailedViewController.swift in Sources */,
 				DBEC473A28ECD8E2000732AE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

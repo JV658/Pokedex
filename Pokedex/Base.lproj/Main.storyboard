@@ -66,7 +66,7 @@
         <!--Pokemon Detail-->
         <scene sceneID="qLW-gf-DF5">
             <objects>
-                <viewController id="TFZ-rb-7gf" sceneMemberID="viewController">
+                <viewController id="TFZ-rb-7gf" customClass="PokemonDetailedViewController" customModule="Pokedex" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H61-lQ-OrP">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -171,6 +171,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Pokemon Detail" id="0fo-MQ-hjb"/>
+                    <connections>
+                        <outlet property="heightLabel" destination="6Qu-iL-cro" id="IMd-6m-eUA"/>
+                        <outlet property="idLabel" destination="hte-kT-w0w" id="SNE-nv-rJb"/>
+                        <outlet property="nameLabel" destination="sxx-GT-WnY" id="Cdj-mu-zcL"/>
+                        <outlet property="pokeUIImage" destination="qhG-tM-QfZ" id="9H2-VK-7Ch"/>
+                        <outlet property="weightLabel" destination="ITa-qS-Kfj" id="K0Z-Rn-pqF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aF5-Ea-nUc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

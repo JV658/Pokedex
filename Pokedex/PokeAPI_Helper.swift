@@ -53,6 +53,7 @@ class PokeAPI_Helper{
             continue
         }
         
+        print("image was fetched for: \(imageURL)")
         guard
             let url = URL(string: imageURL)
         else { throw PokeAPI_Errors.stringToURLError}
