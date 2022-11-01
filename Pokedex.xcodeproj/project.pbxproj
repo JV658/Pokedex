@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DB0756F1290094F40001A85F /* SpriteCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0756F0290094F40001A85F /* SpriteCollectionViewController.swift */; };
 		DB0756F329009CA00001A85F /* SpriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0756F229009CA00001A85F /* SpriteCollectionViewCell.swift */; };
+		DB84195E2911C08F005E2F9A /* Pokedex.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB84195C2911C08F005E2F9A /* Pokedex.xcdatamodeld */; };
 		DBEC473828ECD8E2000732AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEC473728ECD8E2000732AE /* AppDelegate.swift */; };
 		DBEC473A28ECD8E2000732AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEC473928ECD8E2000732AE /* SceneDelegate.swift */; };
 		DBEC473F28ECD8E2000732AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBEC473D28ECD8E2000732AE /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		DB0756F0290094F40001A85F /* SpriteCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteCollectionViewController.swift; sourceTree = "<group>"; };
 		DB0756F229009CA00001A85F /* SpriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteCollectionViewCell.swift; sourceTree = "<group>"; };
+		DB84195D2911C08F005E2F9A /* Pokedex.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Pokedex.xcdatamodel; sourceTree = "<group>"; };
 		DBEC473428ECD8E2000732AE /* Pokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokedex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBEC473728ECD8E2000732AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBEC473928ECD8E2000732AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				DBEC474028ECD8E3000732AE /* Assets.xcassets */,
 				DBEC474228ECD8E3000732AE /* LaunchScreen.storyboard */,
 				DBEC474528ECD8E3000732AE /* Info.plist */,
+				DB84195C2911C08F005E2F9A /* Pokedex.xcdatamodeld */,
 			);
 			path = Pokedex;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 				DBEC473828ECD8E2000732AE /* AppDelegate.swift in Sources */,
 				DBEC477628F60C03000732AE /* PokemonTableViewCell.swift in Sources */,
 				DBEC475028ECDC8C000732AE /* PokeAPI_Helper.swift in Sources */,
+				DB84195E2911C08F005E2F9A /* Pokedex.xcdatamodeld in Sources */,
 				DB0756F329009CA00001A85F /* SpriteCollectionViewCell.swift in Sources */,
 				DBEC477828F61F15000732AE /* PokemonDetailedViewController.swift in Sources */,
 				DBEC473A28ECD8E2000732AE /* SceneDelegate.swift in Sources */,
@@ -380,6 +384,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DB84195C2911C08F005E2F9A /* Pokedex.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DB84195D2911C08F005E2F9A /* Pokedex.xcdatamodel */,
+			);
+			currentVersion = DB84195D2911C08F005E2F9A /* Pokedex.xcdatamodel */;
+			path = Pokedex.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DBEC472C28ECD8E2000732AE /* Project object */;
 }
