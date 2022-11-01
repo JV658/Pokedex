@@ -49,10 +49,7 @@ class PokeAPI_Helper{
     }
     
     public static func fetchImage(imageURL: String) async throws -> Data{
-        for _ in 0...1000000{
-            continue
-        }
-        
+
         print("image was fetched for: \(imageURL)")
         guard
             let url = URL(string: imageURL)

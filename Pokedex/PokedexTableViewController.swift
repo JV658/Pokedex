@@ -129,6 +129,7 @@ class PokedexTableViewController: UITableViewController {
         let index = tableView.indexPathForSelectedRow!.row
         let pokename = pokedex[index].name
         dst.pokemon = pokemonDetails[pokename]
+        dst.pokemonURL = pokedex[index].url
     }
 
 }
