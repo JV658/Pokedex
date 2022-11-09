@@ -50,7 +50,6 @@ class PokeAPI_Helper{
     
     public static func fetchImage(imageURL: String) async throws -> Data{
 
-        print("image was fetched for: \(imageURL)")
         guard
             let url = URL(string: imageURL)
         else { throw PokeAPI_Errors.stringToURLError}

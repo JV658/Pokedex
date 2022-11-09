@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import CoreData
 
 class PokedexTableViewController: UITableViewController {
 
     var pokedex = [PokedexInfo]()
     var pokemonDetails = [String: Pokemon]()
+    var persistentContainer: NSPersistentContainer!
+    var favorites = [String:Favorites]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +35,18 @@ class PokedexTableViewController: UITableViewController {
             }
 
         }
+        
+        let request: NSFetchRequest<Favorites> = Favorites.fetchRequest()
+        let moc = persistentContainer.viewContext
+        
+        guard
+            let result = try? moc.fetch(request)
+        else {
+            preconditionFailure("was not able to fetch the favorites")
+        }
+        for i in result{
+            favorites[i.name ?? ""] = i
+        }
     }
 
     // MARK: - Table view data source
@@ -43,7 +58,6 @@ class PokedexTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        print("pokedex count: \(pokedex.count)")
         return pokedex.count
     }
 
@@ -51,9 +65,16 @@ class PokedexTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "pokemon", for: indexPath) as! PokemonTableViewCell
         
+        cell.persistentContainer = persistentContainer
+        
         let pokename = pokedex[indexPath.row].name
         
-        // MARK: TODO - refine this code to store the image data in the internal memory
+        if let managedObject = favorites[pokename]{
+            cell.isFav.tintColor = .yellow
+            cell.fav = true
+            cell.managedObject = managedObject
+        }
+        
         if let pokemon = pokemonDetails[pokename]{
             cell.defaultSprite.image = UIImage(data: pokemon.imageData!)
         } else {

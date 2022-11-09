@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fm4-Oq-fZC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fm4-Oq-fZC">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -38,16 +38,32 @@
                                                 <constraint firstAttribute="height" constant="32" id="yzc-Sm-Muf"/>
                                             </constraints>
                                         </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sQC-SN-1MA">
+                                            <rect key="frame" x="350" y="6" width="32" height="32"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="32" id="3Cd-Lw-VnV"/>
+                                                <constraint firstAttribute="height" constant="32" id="tRW-Gv-lPV"/>
+                                            </constraints>
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" image="star" catalog="system"/>
+                                            <connections>
+                                                <action selector="toggleFav:" destination="jQX-xU-ysR" eventType="touchUpInside" id="cUf-bP-eS9"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="tvM-Sb-ew4" firstAttribute="centerY" secondItem="bhk-XM-ZgL" secondAttribute="centerY" id="03K-e1-gZ0"/>
                                         <constraint firstItem="Z19-GX-cZz" firstAttribute="centerY" secondItem="bhk-XM-ZgL" secondAttribute="centerY" id="0PR-Dk-fn3"/>
                                         <constraint firstItem="tvM-Sb-ew4" firstAttribute="leading" secondItem="bhk-XM-ZgL" secondAttribute="leading" constant="8" id="F7B-Wp-HXK"/>
+                                        <constraint firstItem="sQC-SN-1MA" firstAttribute="centerY" secondItem="bhk-XM-ZgL" secondAttribute="centerY" id="Mf8-KY-4EM"/>
+                                        <constraint firstAttribute="trailing" secondItem="sQC-SN-1MA" secondAttribute="trailing" constant="8" id="W6x-f4-oYY"/>
                                         <constraint firstItem="Z19-GX-cZz" firstAttribute="leading" secondItem="tvM-Sb-ew4" secondAttribute="trailing" constant="8" id="kCW-mS-912"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="defaultSprite" destination="tvM-Sb-ew4" id="BTM-sM-PGr"/>
+                                    <outlet property="isFav" destination="sQC-SN-1MA" id="hPH-XR-Ghn"/>
                                     <outlet property="pokeNameLabel" destination="Z19-GX-cZz" id="MMk-aV-agr"/>
                                     <segue destination="TFZ-rb-7gf" kind="show" identifier="pokemonDetail" id="moT-Dm-FHO"/>
                                 </connections>
@@ -313,11 +329,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MBQ-jM-WgB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-20" y="-9.24170616113744"/>
+            <point key="canvasLocation" x="-188" y="-345"/>
         </scene>
     </scenes>
     <resources>
         <image name="person" catalog="system" width="128" height="121"/>
+        <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
